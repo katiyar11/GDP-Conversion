@@ -1,0 +1,69 @@
+<!--<html>-->
+<!--<img src="/home/shobhana/Dev/codebase/gdp_conversion/usd_inr/scripts/test_plot.png" alt="Girl in a jacket" width="500" height="600">-->
+
+<!--</html>-->
+
+<html style="height: 100%;">
+
+<head>
+
+    <style>
+
+        .hide_cls{
+            display:none
+
+        }
+    </style>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+
+<script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
+
+</script>
+
+
+<script>
+
+    function convert_data(){
+
+        console.log('ccccccccccccc')
+        $.ajax({
+            url: `/rest/usd_conversion_request`,
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+            dataType: 'json',
+            type: 'get',
+            contentType: 'application/json',
+            data: {},
+            processData: false,
+            success: function (data, textStatus, jQxhr) {
+                console.log('dataaa',data)
+                document.getElementById("usd").style.display = 'none';
+                document.getElementById("inr").src = data.image_path;
+                document.getElementById("inr").style.display = 'block';
+                document.getElementById("btn1").style.display = 'none';
+                alert("Usd data Converted into INR");
+            }
+        });
+    }
+
+</script>
+</head>
+
+<body style="height: 100%;">
+<div>
+    <img id="usd" src="{{image_path}}">
+    <img id="inr" class="hide_cls" src="">
+</div>
+<div>
+    <button id="btn1" type="button"  onclick="convert_data()">USD covert to INR</button>
+
+</div>
+</body>
+</html>
