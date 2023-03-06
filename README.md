@@ -1,4 +1,4 @@
-# GDP-Convesion
+# GDP-Convresion
 GDP-Convesion application using Django framework
 1. Create virtual inviroment
 2. Activate the virtual inviroment
